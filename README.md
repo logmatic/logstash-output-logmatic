@@ -9,9 +9,9 @@ To install it in your Logstash install:
 
 - Edit Logstash `Gemfile` and add the local plugin path, for example:
 
- ```
- gem "logstash-output-logmatic"
- ```
+```
+gem "logstash-output-logmatic"
+```
 
 - Then install plugin:
 
