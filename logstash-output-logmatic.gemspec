@@ -4,8 +4,7 @@ Gem::Specification.new do |s|
   s.licenses = ["GNU 2.0"]
   s.summary = "Logmatic Output"
   s.description = "Logmatic output for Logstash"
-  s.authors = ["Giovanni CLEMENT"]
-  s.email = "giovanni@clicandwalk.com"
+  s.authors = ["Giovanni CLEMENT","Renaud Boutet"]
   s.homepage = ""
   s.require_paths = ["lib"]
 
