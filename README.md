@@ -58,7 +58,7 @@ bin/plugin install --no-verify
 ```
 - Run Logstash with your plugin
 ```sh
-bin/logstash -e 'output {awesome {}}'
+bin/logstash -e 'output {logmatic {...}}'
 ```
 At this point any modifications to the plugin code will be applied to this local Logstash setup. After modifying the plugin, simply rerun Logstash.
 
