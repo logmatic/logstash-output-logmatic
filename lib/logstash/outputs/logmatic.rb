@@ -4,13 +4,15 @@ require "logstash/namespace"
 require "stud/buffer"
 
 # Ship log from logstash straight to Logmatic
-# 
+#
 # To use this you will need a valid Logmatic API Key
 class LogStash::Outputs::LogmaticBatch < LogStash::Outputs::Base
   include Stud::Buffer
 
   config_name "logmatic"
   milestone 2
+
+  default :codec, "json"
 
   # The Logmatic api key
   # You can find it in the 'Account' section in the Logmatic interface.
@@ -44,14 +46,14 @@ class LogStash::Outputs::LogmaticBatch < LogStash::Outputs::Base
   public
   def receive(event)
     return unless output?(event)
-    buffer_receive(event)
+    buffer_receive(event.to_json)
   end
 
   public
   def flush(events, final=false)
     # Send the event over http.
     request = Net::HTTP::Post.new(@uri.path)
-    request.body = events.to_json
+    request.body = events.inspect
     request.add_field("Content-Type", 'application/json')
     response = @client.request(request)
     if response.is_a?(Net::HTTPSuccess)
