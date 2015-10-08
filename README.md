@@ -27,12 +27,6 @@ Then you just need to configure the output as follow:
 output {
     logmatic {
         key => "<your_api_key>"
-        # In order to limit the amount of resources the output uses buffering
-        # You can configure its behavior with:
-        # The number of elements queued before flushing
-        # queue_size => 10
-        # The timeframe in seconds for buffering before flushing
-        # timeframe => 10
     }
 }
 

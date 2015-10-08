@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'logstash-output-logmatic'
-  s.version         = "0.1.1"
+  s.version         = "0.1.2"
   s.licenses = ["GNU 2.0"]
   s.summary = "Logmatic Output"
   s.description = "Logmatic output for Logstash"
