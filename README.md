@@ -1,6 +1,6 @@
 # Logstash Logmatic.io's Output Plugin
 
-TThis project is an output plugin to send logs to Logmatic.io from Logstash >v1.5.0.
+This project is an output plugin to send logs to Logmatic.io from Logstash >v1.5.0.
 
 ## How to install it?
 
