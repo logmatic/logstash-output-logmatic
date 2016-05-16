@@ -1,3 +1,5 @@
 *.gem
 *.lock
 logstash-output-logmatic-*.gem
+.idea/
+*.iml
