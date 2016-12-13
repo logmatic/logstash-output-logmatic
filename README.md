@@ -8,11 +8,14 @@ This project is an output plugin to send logs to Logmatic.io from Logstash >v1.5
 The gem is published in the main repository.
 
 ```bash
-# Logstash 2.x
+# Logstash 5.x
 bin/logstash-plugin install logstash-output-logmatic
 
+# Logstash 2.x
+bin/logstash-plugin --version 0.2 logstash-output-logmatic
+
 # Logstash 1.5x
-bin/plugin install logstash-output-logmatic
+bin/plugin install --version 0.2 logstash-output-logmatic
 ```
 
 Check the installation.
