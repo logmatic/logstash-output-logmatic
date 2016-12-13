@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
 
   # Special flag to let us know this is actually a logstash plugin
   spec.metadata      = { "logstash_plugin" => "true", "logstash_group" => "output" }
-  spec.files         = `git ls-files`.split("\n")
+  spec.files         = Dir['LICENSE.md', 'README.md', 'lib/**/*'] 
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
