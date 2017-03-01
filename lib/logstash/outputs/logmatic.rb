@@ -21,7 +21,11 @@ class LogStash::Outputs::LogmaticTcp < LogStash::Outputs::Base
 
   # When mode is `server`, the port to listen on.
   # When mode is `client`, the port to connect to.
-  config :port, :validate => :number, :default => 10514
+  config :port, :validate => :number, :default => 10515
+
+
+  # When use_ssl is `true`, the connection is secure.
+  config :use_ssl, :validate => :boolean, :default => true
 
   # The Logmatic api key
   # You can find it in the 'Account' section in the Logmatic interface.
@@ -109,7 +113,6 @@ class LogStash::Outputs::LogmaticTcp < LogStash::Outputs::Base
           client_socket.sysread(16384) if r.any?
 
           # Now send the payload
-          @logger.debug(@key);
           client_socket.syswrite(@key + " " + payload+"\n") if w.any?
         rescue => e
           @logger.warn("tcp output exception", :host => @host, :port => @port,
@@ -126,7 +129,15 @@ class LogStash::Outputs::LogmaticTcp < LogStash::Outputs::Base
   private
   def connect
     Stud::try do
-      return TCPSocket.new(@host, @port)
+      socket ||= if @use_ssl
+                   context    = OpenSSL::SSL::SSLContext.new
+                   socket     = TCPSocket.new @host, @port
+                   ssl_client = OpenSSL::SSL::SSLSocket.new socket, context
+                   ssl_client.connect
+                 else
+                   TCPSocket.new @host, @port
+                 end
+      return socket
     end
   end # def connect
 
