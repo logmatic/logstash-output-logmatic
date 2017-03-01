@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name          = "logstash-output-logmatic"
-  spec.version       = "0.3.0"
+  spec.version       = "1.3.1"
   spec.authors       = ["Logmatic support team", "Giovanni CLEMENT"]
   spec.email         = ["support@logmatic.io"]
   spec.summary       = "Logmatic output plugin for Logstash"
